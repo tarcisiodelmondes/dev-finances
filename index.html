@@ -7,6 +7,11 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
+
+
     <title>dev.finance$</title>
 </head>
 
@@ -15,7 +20,7 @@
         <h1 id="logo">dev.finance$</h1>
     </header>
 
-    <main>
+    <main class="container">
         <section id="balance">
             <h2>Balanço</h2>
 
@@ -29,7 +34,7 @@
                 <p>R$ 2.000,00</p>
             </div>
 
-            <div class="card">
+            <div class="card total">
                 <h3>Total</h3>
                 <p>R$ 3.000,00</p>
             </div>
@@ -50,20 +55,20 @@
 
                 <tbody>
                     <tr>
-                        <td>Luz</td>
-                        <td>- R$ 500,00</td>
-                        <td>23/01/2021</td>
+                        <td class="description">Luz</td>
+                        <td class="expense">- R$ 500,00</td>
+                        <td class="date">23/01/2021</td>
                     </tr>
 
                     <tr>
-                        <td>Criação de Website</td>
-                        <td>R$ 5.000,00</td>
-                        <td>25/01/2021</td>
+                        <td class="description">Criação de Website</td>
+                        <td class="income">R$ 5.000,00</td>
+                        <td class="date">25/01/2021</td>
 
                     <tr>
-                        <td>Aluguel</td>
-                        <td>- R$ 1.500,00</td>
-                        <td>29/01/2021</td>
+                        <td class="description">Aluguel</td>
+                        <td class="expense">- R$ 1.500,00</td>
+                        <td class="date">29/01/2021</td>
                     </tr>
                 </tbody>
             </table>
