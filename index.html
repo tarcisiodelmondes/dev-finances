@@ -22,26 +22,38 @@
 
     <main class="container">
         <section id="balance">
-            <h2>Balanço</h2>
+            <h2 class="sr-only">Balanço</h2>
 
             <div class="card">
-                <h3>Entradas</h3>
+                <h3>
+                    <span>Entradas</span>
+                    <img src="./assets/income.svg" alt="Image de entrada">
+                </h3>
+
                 <p>R$ 5.000,00</p>
             </div>
 
             <div class="card">
-                <h3>Saídas</h3>
+                <h3>
+                    <span>Saídas</span>
+                    <img src="./assets/expense.svg" alt="Image de saida">
+                </h3>
                 <p>R$ 2.000,00</p>
             </div>
 
             <div class="card total">
-                <h3>Total</h3>
+                <h3>
+                    <span>Total</span>
+                    <img src="./assets/total.svg" alt="Image do total">
+                </h3>
                 <p>R$ 3.000,00</p>
             </div>
         </section>
 
         <section id="transactions">
-            <h2>Transações</h2>
+            <h2 class="sr-only">Transações</h2>
+
+            <a onclick="Modal.open" class="button new" href="#">+ Nova transação</a>
 
             <table id="data-table">
                 <thead>
@@ -49,6 +61,7 @@
                         <th>descrição</th>
                         <th>Valor</th>
                         <th>Data</th>
+                        <th></th>
                     </tr>
                 </thead>
 
@@ -58,26 +71,64 @@
                         <td class="description">Luz</td>
                         <td class="expense">- R$ 500,00</td>
                         <td class="date">23/01/2021</td>
+                        <td><img src="./assets/minus.svg" alt="Remover transação"></td>
                     </tr>
 
                     <tr>
                         <td class="description">Criação de Website</td>
                         <td class="income">R$ 5.000,00</td>
                         <td class="date">25/01/2021</td>
+                        <td><img src="./assets/minus.svg" alt="Remover transação"></td>
 
                     <tr>
                         <td class="description">Aluguel</td>
                         <td class="expense">- R$ 1.500,00</td>
                         <td class="date">29/01/2021</td>
+                        <td><img src="./assets/minus.svg" alt="Remover transação"></td>
                     </tr>
                 </tbody>
             </table>
         </section>
     </main>
 
+    <div class="modal-overlay">
+        <div class="modal">
+            <div class="form">
+                <h2>Nova transação</h2>
+
+                <form action="#">
+                    <div class="input-group">
+                        <label for="description" class="sr-only">Descrição</label>
+                        <input type="text" name="description" id="description" placeholder="Descrição">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="amount" class="sr-only">Valor</label>
+                        <input type="number" name="amount" id="" placeholder="0,00" step="0.01">
+                        <small class="help">Use o sinal de - (negativos) para despesas e , virgula para casas
+                            decimais</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="date" class="sr-only">Data</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+
+                    <div class="input-group actions">
+                        <a onclick="Modal.close" href="#" class="button cancel">Cancelar</a>
+                        <button type="submit">Salvar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
     <footer>
         <p>dev.finance$</p>
     </footer>
+
+    <script src="./js/index.js"></script>
 
 </body>
 
