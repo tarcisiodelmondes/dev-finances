@@ -30,7 +30,7 @@
                     <img src="./assets/income.svg" alt="Image de entrada">
                 </h3>
 
-                <p>R$ 5.000,00</p>
+                <p id="incomeDisplay">R$ 5.000,00</p>
             </div>
 
             <div class="card">
@@ -38,7 +38,7 @@
                     <span>Saídas</span>
                     <img src="./assets/expense.svg" alt="Image de saida">
                 </h3>
-                <p>R$ 2.000,00</p>
+                <p id="expenseDisplay">R$ 2.000,00</p>
             </div>
 
             <div class="card total">
@@ -46,14 +46,14 @@
                     <span>Total</span>
                     <img src="./assets/total.svg" alt="Image do total">
                 </h3>
-                <p>R$ 3.000,00</p>
+                <p id="totalDisplay">R$ 3.000,00</p>
             </div>
         </section>
 
         <section id="transactions">
             <h2 class="sr-only">Transações</h2>
 
-            <a onclick="Modal.open" class="button new" href="#">+ Nova transação</a>
+            <a onclick="Modal.toogle" class="button new" href="#">+ Nova transação</a>
 
             <table id="data-table">
                 <thead>
@@ -66,27 +66,7 @@
                 </thead>
 
 
-                <tbody>
-                    <tr>
-                        <td class="description">Luz</td>
-                        <td class="expense">- R$ 500,00</td>
-                        <td class="date">23/01/2021</td>
-                        <td><img src="./assets/minus.svg" alt="Remover transação"></td>
-                    </tr>
-
-                    <tr>
-                        <td class="description">Criação de Website</td>
-                        <td class="income">R$ 5.000,00</td>
-                        <td class="date">25/01/2021</td>
-                        <td><img src="./assets/minus.svg" alt="Remover transação"></td>
-
-                    <tr>
-                        <td class="description">Aluguel</td>
-                        <td class="expense">- R$ 1.500,00</td>
-                        <td class="date">29/01/2021</td>
-                        <td><img src="./assets/minus.svg" alt="Remover transação"></td>
-                    </tr>
-                </tbody>
+                <tbody></tbody>
             </table>
         </section>
     </main>
@@ -96,7 +76,7 @@
             <div class="form">
                 <h2>Nova transação</h2>
 
-                <form action="#">
+                <form action="#" onsubmit="Form.submit(event)" >
                     <div class="input-group">
                         <label for="description" class="sr-only">Descrição</label>
                         <input type="text" name="description" id="description" placeholder="Descrição">
@@ -104,7 +84,7 @@
 
                     <div class="input-group">
                         <label for="amount" class="sr-only">Valor</label>
-                        <input type="number" name="amount" id="" placeholder="0,00" step="0.01">
+                        <input type="number" name="amount" id="amount" placeholder="0,00" step="0.01">
                         <small class="help">Use o sinal de - (negativos) para despesas e , virgula para casas
                             decimais</small>
                     </div>
@@ -115,7 +95,7 @@
                     </div>
 
                     <div class="input-group actions">
-                        <a onclick="Modal.close" href="#" class="button cancel">Cancelar</a>
+                   <a onclick="Modal.toogle" href="#" class="button cancel">Cancelar</a>
                         <button type="submit">Salvar</button>
                     </div>
                 </form>
