@@ -15,3 +15,7 @@ Dev.finance$ é um site de controle financeiro que foi desenvolvido durante a Ma
 ## Visitar o site:
 
 Acesse [https://tarcisiodelmondes.github.io/dev-finances/](https://tarcisiodelmondes.github.io/dev-finances/) para ter acesso ao site.
+
+## Licença
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/tarcisiodelmondes/dev-finances/blob/master/LICENSE) para mais detalhes.
