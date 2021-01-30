@@ -4,28 +4,21 @@ const Modal = {
   },
 };
 
-const transactions = [
-  {
-    description: "Luz",
-    amount: -50000,
-    date: "23/01/2021",
+const Storage = {
+  get() {
+    return JSON.parse(localStorage.getItem("dev.finance:transactions")) || [];
   },
 
-  {
-    description: "Criação de Website",
-    amount: 500000,
-    date: "25/01/2021",
+  set(transaction) {
+    localStorage.setItem(
+      "dev.finance:transactions",
+      JSON.stringify(transaction)
+    );
   },
-
-  {
-    description: "Aluguel",
-    amount: -150000,
-    date: "29/01/2021",
-  },
-];
+};
 
 const Transaction = {
-  all: transactions,
+  all: Storage.get(),
 
   add(transaction) {
     this.all.push(transaction);
@@ -40,7 +33,7 @@ const Transaction = {
   get income() {
     let income = 0;
 
-    Transaction.all.forEach(({ amount }) => {
+    this.all.forEach(({ amount }) => {
       if (amount > 0) {
         income += amount;
       }
@@ -52,7 +45,7 @@ const Transaction = {
   get expenses() {
     let expense = 0;
 
-    Transaction.all.forEach(({ amount }) => {
+    this.all.forEach(({ amount }) => {
       if (amount < 0) {
         expense += amount;
       }
@@ -72,11 +65,12 @@ const DOM = {
   addTransaction(transaction, index) {
     const tr = document.createElement("tr");
     tr.innerHTML = DOM.innerHTMLTransaction(transaction);
+    tr.dataset.index = index;
 
     DOM.transactionContainer.appendChild(tr);
   },
 
-  innerHTMLTransaction(transaction) {
+  innerHTMLTransaction(transaction, index) {
     const CSSclass = transaction.amount > 0 ? "income" : "expense";
     const amount = Utils.formatCurrency(transaction.amount);
 
@@ -85,7 +79,7 @@ const DOM = {
             <td class="description">${transaction.description}</td>
             <td class="${CSSclass}">${amount}</td>
             <td class="date">${transaction.date}</td>
-            <td><img src="./assets/minus.svg" alt="Remover transação"></td>
+            <td><img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Remover transação"></td>
     `;
 
     return html;
@@ -127,7 +121,13 @@ const Utils = {
   },
 
   formatAmount(value) {
-    console.log(value.replace(".", ","));
+    value = Number(value) * 100;
+
+    return value;
+  },
+
+  formatDate(date) {
+    return date.split("-").reverse().join("/");
   },
 };
 
@@ -158,15 +158,42 @@ const Form = {
 
   formatData() {
     let { description, amount, date } = this.getValues();
-    Utils.formatAmount(amount);
+
+    amount = Utils.formatAmount(amount);
+    date = Utils.formatDate(date);
+
+    return {
+      description,
+      amount,
+      date,
+    };
+  },
+
+  saveTransaction(transaction) {
+    Transaction.add(transaction);
+  },
+
+  clearFields() {
+    this.description.value = "";
+    this.amount.value = "";
+    this.date.value = "";
+  },
+
+  closeModal() {
+    Modal.toogle;
   },
 
   submit(event) {
     event.preventDefault();
 
     try {
-      //this.validateFields();
-      this.formatData();
+      this.validateFields();
+
+      const transaction = this.formatData();
+
+      this.saveTransaction(transaction);
+      this.clearFields();
+      this.closeModal();
     } catch (error) {
       alert(error.message);
     }
@@ -175,11 +202,13 @@ const Form = {
 
 const App = {
   init() {
-    Transaction.all.forEach((transaction) => {
-      DOM.addTransaction(transaction);
+    Transaction.all.forEach((transaction, index) => {
+      DOM.addTransaction(transaction, index);
     });
 
     DOM.updateBalance();
+
+    Storage.set(Transaction.all);
   },
 
   reload() {
