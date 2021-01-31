@@ -1,115 +1,137 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/toastify.css" />
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
 
     <title>dev.finance$</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1 id="logo">dev.finance$</h1>
+      <h1 id="logo">dev.finance$</h1>
     </header>
 
     <main class="container">
-        <section id="balance">
-            <h2 class="sr-only">Balanço</h2>
+      <section id="balance">
+        <h2 class="sr-only">Balanço</h2>
 
-            <div class="card">
-                <h3>
-                    <span>Entradas</span>
-                    <img src="./assets/income.svg" alt="Image de entrada">
-                </h3>
+        <div class="card">
+          <h3>
+            <span>Entradas</span>
+            <img src="./assets/income.svg" alt="Image de entrada" />
+          </h3>
 
-                <p id="incomeDisplay">R$ 0,00</p>
-            </div>
+          <p id="incomeDisplay">R$ 0,00</p>
+        </div>
 
-            <div class="card">
-                <h3>
-                    <span>Saídas</span>
-                    <img src="./assets/expense.svg" alt="Image de saida">
-                </h3>
-                <p id="expenseDisplay">R$ 0,00</p>
-            </div>
+        <div class="card">
+          <h3>
+            <span>Saídas</span>
+            <img src="./assets/expense.svg" alt="Image de saida" />
+          </h3>
+          <p id="expenseDisplay">R$ 0,00</p>
+        </div>
 
-            <div class="card total">
-                <h3>
-                    <span>Total</span>
-                    <img src="./assets/total.svg" alt="Image do total">
-                </h3>
-                <p id="totalDisplay">R$ 0,00</p>
-            </div>
-        </section>
+        <div class="card total">
+          <h3>
+            <span>Total</span>
+            <img src="./assets/total.svg" alt="Image do total" />
+          </h3>
+          <p id="totalDisplay">R$ 0,00</p>
+        </div>
+      </section>
 
-        <section id="transactions">
-            <h2 class="sr-only">Transações</h2>
+      <section id="transactions">
+        <h2 class="sr-only">Transações</h2>
 
-            <a onclick="Modal.toogle" class="button new" href="#">+ Nova transação</a>
+        <a onclick="Modal.toogle" class="button new" href="#"
+          >+ Nova transação</a
+        >
 
-            <table id="data-table">
-                <thead>
-                    <tr>
-                        <th>descrição</th>
-                        <th>Valor</th>
-                        <th>Data</th>
-                        <th></th>
-                    </tr>
-                </thead>
+        <table id="data-table">
+          <thead>
+            <tr>
+              <th>descrição</th>
+              <th>Valor</th>
+              <th>Data</th>
+              <th></th>
+            </tr>
+          </thead>
 
-
-                <tbody></tbody>
-            </table>
-        </section>
+          <tbody></tbody>
+        </table>
+      </section>
     </main>
 
     <div class="modal-overlay">
-        <div class="modal">
-            <div class="form">
-                <h2>Nova transação</h2>
+      <div class="modal">
+        <div class="form">
+          <h2>Nova transação</h2>
 
-                <form action="#" onsubmit="Form.submit(event)" >
-                    <div class="input-group">
-                        <label for="description" class="sr-only">Descrição</label>
-                        <input type="text" name="description" id="description" placeholder="Descrição">
-                    </div>
-
-                    <div class="input-group">
-                        <label for="amount" class="sr-only">Valor</label>
-                        <input type="number" name="amount" id="amount" placeholder="0,00" step="0.01">
-                        <small class="help">Use o sinal de - (negativos) para despesas e , virgula para casas
-                            decimais</small>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="date" class="sr-only">Data</label>
-                        <input type="date" id="date" name="date">
-                    </div>
-
-                    <div class="input-group actions">
-                   <a onclick="Modal.toogle" href="#" class="button cancel">Cancelar</a>
-                        <button type="submit">Salvar</button>
-                    </div>
-                </form>
+          <form action="#" onsubmit="Form.submit(event)">
+            <div class="input-group">
+              <label for="description" class="sr-only">Descrição</label>
+              <input
+                type="text"
+                name="description"
+                id="description"
+                placeholder="Descrição"
+              />
             </div>
 
+            <div class="input-group">
+              <label for="amount" class="sr-only">Valor</label>
+              <input
+                type="number"
+                name="amount"
+                id="amount"
+                placeholder="0,00"
+                step="0.01"
+              />
+              <small class="help"
+                >Use o sinal de - (negativos) para despesas e , virgula para
+                casas decimais</small
+              >
+            </div>
+
+            <div class="input-group">
+              <label for="date" class="sr-only">Data</label>
+              <input type="date" id="date" name="date" />
+            </div>
+
+            <div class="input-group actions">
+              <a onclick="Modal.toogle" href="#" class="button cancel"
+                >Cancelar</a
+              >
+              <button type="submit">Salvar</button>
+            </div>
+          </form>
         </div>
+      </div>
+    </div>
+
+    <div class="toastify">
+      <div class="toastify-container-msg">
+        <p id="toastify-msg"></p>
+      </div>
     </div>
 
     <footer>
-        <p>dev.finance$</p>
+      <p>dev.finance$</p>
     </footer>
 
     <script src="./js/index.js"></script>
-
-</body>
-
+    <script src="./js/toastify.js"></script>
+  </body>
 </html>

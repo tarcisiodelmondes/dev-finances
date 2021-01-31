@@ -194,8 +194,10 @@ const Form = {
       this.saveTransaction(transaction);
       this.clearFields();
       this.closeModal();
+
+      activeToastifySucess();
     } catch (error) {
-      alert(error.message);
+      activeToastifyError();
     }
   },
 };
