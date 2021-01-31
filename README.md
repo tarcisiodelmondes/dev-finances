@@ -12,6 +12,10 @@
 
 Dev.finance$ é um site de controle financeiro que foi desenvolvido durante a Maratona Discover.
 
+## Recursos que eu adicionei:
+
+- Um popup personalizado quando da erro ou sucess ao preencher o formulario.
+
 ## Visitar o site:
 
 Acesse [https://tarcisiodelmondes.github.io/dev-finances/](https://tarcisiodelmondes.github.io/dev-finances/) para ter acesso ao site.
