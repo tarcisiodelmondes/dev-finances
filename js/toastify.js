@@ -15,6 +15,7 @@ const toggle = (type = false, msg) => {
       break;
 
     case "edited":
+      document.querySelector(".toastify").classList.add("active-toastify");
       containerToastify.style.backgroundColor = "#2E8B57";
       break;
 
