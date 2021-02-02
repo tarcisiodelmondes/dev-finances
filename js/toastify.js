@@ -5,28 +5,26 @@ const toggle = (type = false, msg) => {
 
   switch (type) {
     case "error":
-      containerToastify.style.display = "flex";
+      document.querySelector(".toastify").classList.add("active-toastify");
       containerToastify.style.backgroundColor = "orange";
       break;
 
     case "sucess":
-      containerToastify.style.display = "flex";
+      document.querySelector(".toastify").classList.add("active-toastify");
       containerToastify.style.backgroundColor = "green";
       break;
 
     case "edited":
-      containerToastify.style.display = "flex";
       containerToastify.style.backgroundColor = "#2E8B57";
       break;
 
     case false:
-      containerToastify.style.display = "none";
+      containerToastify.style = "none";
+      containerToastify.classList.remove("active-toastify");
 
     default:
       break;
   }
-
-  document.querySelector(".toastify").classList.toggle("active-toastify");
 };
 
 const msgOfAlert = (msg) => {
