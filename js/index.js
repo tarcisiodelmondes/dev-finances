@@ -1,6 +1,7 @@
 const Modal = {
   get toogle() {
     document.querySelector(".modal-overlay").classList.toggle("active");
+    Form.clearFields();
   },
 };
 
@@ -20,14 +21,37 @@ const Storage = {
 const Transaction = {
   all: Storage.get(),
 
-  add(transaction) {
-    this.all.push(transaction);
+  indexOfTransaction: 0,
+  editTransaction: false,
+
+  add(transaction, index) {
+    if (this.editTransaction) {
+      this.all[index] = transaction;
+      activeToastifyEdited();
+    } else {
+      this.all.push(transaction);
+      activeToastifySucess();
+    }
+
+    this.editTransaction = false;
+
     App.reload();
   },
 
   remove(index) {
     this.all.splice(index, 1);
     App.reload();
+  },
+
+  edit(index) {
+    Modal.toogle;
+    this.editTransaction = true;
+
+    const { description, amount, date } = this.all[index];
+
+    Form.description.value = description;
+    Form.amount.value = Number(amount) / 100;
+    Form.date.value = date.split("/").reverse().join("-");
   },
 
   get income() {
@@ -64,7 +88,7 @@ const DOM = {
 
   addTransaction(transaction, index) {
     const tr = document.createElement("tr");
-    tr.innerHTML = DOM.innerHTMLTransaction(transaction);
+    tr.innerHTML = DOM.innerHTMLTransaction(transaction, index);
     tr.dataset.index = index;
 
     DOM.transactionContainer.appendChild(tr);
@@ -76,12 +100,14 @@ const DOM = {
 
     const html = `
 
-            <td class="description">${transaction.description}</td>
+            <td class="description edit" onclick="Transaction.edit(${index});
+              Transaction.indexOfTransaction = ${index}" >${transaction.description}
+             </td>
             <td class="${CSSclass}">${amount}</td>
             <td class="date">${transaction.date}</td>
             <td><img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Remover transação"></td>
-    `;
 
+    `;
     return html;
   },
 
@@ -152,7 +178,7 @@ const Form = {
       amount.trim() === "" ||
       date.trim() === ""
     ) {
-      throw new Error("Por favor, preencha todos os campos");
+      throw new Error();
     }
   },
 
@@ -170,7 +196,7 @@ const Form = {
   },
 
   saveTransaction(transaction) {
-    Transaction.add(transaction);
+    Transaction.add(transaction, Transaction.indexOfTransaction);
   },
 
   clearFields() {
@@ -192,10 +218,7 @@ const Form = {
       const transaction = this.formatData();
 
       this.saveTransaction(transaction);
-      this.clearFields();
       this.closeModal();
-
-      activeToastifySucess();
     } catch (error) {
       activeToastifyError();
     }

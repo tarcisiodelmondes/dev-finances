@@ -14,7 +14,8 @@ Dev.finance$ é um site de controle financeiro que foi desenvolvido durante a Ma
 
 ## Recursos que eu adicionei:
 
-- Um popup personalizado quando da erro ou sucess ao preencher o formulario.
+- Um popup personalizado ao preencher o formulario.
+- Poder editar a transação
 
 ## Visitar o site:
 

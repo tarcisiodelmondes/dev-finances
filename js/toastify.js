@@ -14,6 +14,11 @@ const toggle = (type = false, msg) => {
       containerToastify.style.backgroundColor = "green";
       break;
 
+    case "edited":
+      containerToastify.style.display = "flex";
+      containerToastify.style.backgroundColor = "#2E8B57";
+      break;
+
     case false:
       containerToastify.style.display = "none";
 
@@ -38,6 +43,14 @@ const activeToastifyError = () => {
 
 const activeToastifySucess = () => {
   toggle("sucess", "Salvo com sucesso");
+
+  setTimeout(() => {
+    toggle();
+  }, 3000);
+};
+
+const activeToastifyEdited = () => {
+  toggle("edited", "Editado com sucesso");
 
   setTimeout(() => {
     toggle();
