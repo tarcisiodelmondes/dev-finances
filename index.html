@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/toastify.css" />
+    <link rel="stylesheet" href="./css/button-dark.css" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -55,9 +56,17 @@
       <section id="transactions">
         <h2 class="sr-only">Transações</h2>
 
-        <a onclick="Modal.toogle" class="button new" href="#"
-          >+ Nova transação</a
-        >
+        <div id="row">
+          <a onclick="Modal.toogle" class="button new" href="#"
+            >+ Nova transação</a
+          >
+
+          <div id="dark_mode-button">
+            <p>Modo escuro</p>
+            <input type="checkbox" name="theme" id="switch" class="sr-only" />
+            <label for="switch"></label>
+          </div>
+        </div>
 
         <table id="data-table">
           <thead>
@@ -139,6 +148,7 @@
       <p>dev.finance$</p>
     </footer>
 
+    <script src="./js/darkMode.js"></script>
     <script src="./js/index.js"></script>
     <script src="./js/toastify.js"></script>
   </body>

@@ -5,6 +5,8 @@
   --green: #49aa26;
   --light-green: #3dd705;
   --red: #e92929;
+  --white-body: #f0f2f5;
+  --black-green: #2d4a22;
 }
 
 * {
@@ -18,7 +20,7 @@ html {
 }
 
 body {
-  background: #f0f2f5;
+  background: var(--white-body);
   font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
@@ -104,7 +106,7 @@ button:hover {
 /* Header */
 
 header {
-  background: #2d4a22;
+  background: var(--black-green);
   padding: 2rem 0 10rem;
   margin-bottom: 2rem;
   text-align: center;

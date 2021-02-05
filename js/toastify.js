@@ -22,6 +22,7 @@ const toggle = (type = false, msg) => {
     case false:
       containerToastify.style = "none";
       containerToastify.classList.remove("active-toastify");
+      break;
 
     default:
       break;

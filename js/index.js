@@ -6,8 +6,8 @@ const Modal = {
 };
 
 const Storage = {
-  get() {
-    return JSON.parse(localStorage.getItem("dev.finance:transactions")) || [];
+  get(item) {
+    return JSON.parse(localStorage.getItem(`dev.finance:${item}`)) || [];
   },
 
   set(transaction) {
@@ -19,7 +19,7 @@ const Storage = {
 };
 
 const Transaction = {
-  all: Storage.get(),
+  all: Storage.get("transactions"),
 
   indexOfTransaction: 0,
   editTransaction: false,
@@ -234,6 +234,8 @@ const App = {
     DOM.updateBalance();
 
     Storage.set(Transaction.all);
+
+    loadTheme(Storage.get("theme"));
   },
 
   reload() {
