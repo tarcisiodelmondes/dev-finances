@@ -16,6 +16,9 @@ Dev.finance$ é um site de controle financeiro que foi desenvolvido durante a Ma
 
 - Um popup personalizado ao preencher o formulario.
 - Poder editar a transação
+- Tema escuro
+- Salvar o tema que o usuario escolheu no localStorage, para carregar o tema escolhido
+  assim que aplicação carregar
 
 ## Visitar o site:
 
