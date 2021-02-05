@@ -224,6 +224,10 @@ td.expense {
   color: #e92929;
 }
 
+td.edit:hover {
+  background-color: #eee;
+}
+
 /* Modal */
 
 .modal-overlay {
