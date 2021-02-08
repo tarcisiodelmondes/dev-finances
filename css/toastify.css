@@ -6,12 +6,10 @@
   z-index: 999;
 
   width: 18rem;
-  height: 50px;
+  height: 70px;
 
   border: 1px solid transparent;
   border-radius: 1.5px;
-
-  background: rgb(199, 8, 8);
 
   animation: toastify-animation 3s cubic-bezier(1, -0.76, 0.7, 1.69);
 }
@@ -27,8 +25,8 @@
 }
 
 #toastify-msg {
-  font-size: 0.9rem;
-  padding: 2rem;
+  font-size: 1.2rem;
+  padding: 1rem;
 }
 
 /* toastify-time-bar */
@@ -83,11 +81,11 @@
   /* Toastify */
   .toastify.active-toastify {
     width: 320px;
-    height: 50px;
+    height: 75px;
   }
 
   #toastify-msg {
-    font-size: 1.05rem;
+    font-size: 1.3rem;
     padding: 1rem;
   }
 
