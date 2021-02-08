@@ -1,6 +1,5 @@
 :root {
   --black: black;
-  --orange: orange;
 }
 
 #row {
@@ -45,7 +44,7 @@
   top: 2px;
 
   border-radius: 50%;
-  background-color: var(--orange);
+  background-color: var(--green);
 
   display: block;
 
