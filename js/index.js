@@ -21,6 +21,8 @@ const Storage = {
 const Transaction = {
   all: Storage.get("transactions"),
 
+  //
+
   indexOfTransaction: 0,
   editTransaction: false,
 
@@ -54,7 +56,7 @@ const Transaction = {
     Form.date.value = date.split("/").reverse().join("-");
   },
 
-  get income() {
+  income() {
     let income = 0;
 
     this.all.forEach(({ amount }) => {
@@ -66,7 +68,7 @@ const Transaction = {
     return income;
   },
 
-  get expenses() {
+  expenses() {
     let expense = 0;
 
     this.all.forEach(({ amount }) => {
@@ -78,8 +80,8 @@ const Transaction = {
     return expense;
   },
 
-  get total() {
-    return this.income + this.expenses;
+  total() {
+    return this.income() + this.expenses();
   },
 };
 
@@ -113,15 +115,15 @@ const DOM = {
 
   updateBalance() {
     document.querySelector("#incomeDisplay").innerHTML = Utils.formatCurrency(
-      Transaction.income
+      Transaction.income()
     );
 
     document.querySelector("#expenseDisplay").innerHTML = Utils.formatCurrency(
-      Transaction.expenses
+      Transaction.expenses()
     );
 
     document.querySelector("#totalDisplay").innerHTML = Utils.formatCurrency(
-      Transaction.total
+      Transaction.total()
     );
   },
 
@@ -236,6 +238,11 @@ const App = {
     Storage.set(Transaction.all);
 
     loadTheme(Storage.get("theme"));
+
+    // Coloca a cor de acordo com a saude da carteira
+    Transaction.total() < 0
+      ? isNegative(negativeWallet)
+      : isNegative(healthyWallet);
   },
 
   reload() {
