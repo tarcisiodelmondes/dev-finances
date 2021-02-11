@@ -6,6 +6,7 @@ const getStyle = (element, style) => {
 };
 
 const initialColors = {
+  paragrafoFooter: getStyle(html, "--paragrafo-footer"),
   green: getStyle(html, "--green"),
   blackGreen: getStyle(html, "--black-green"),
   lightGreen: getStyle(html, "--light-green"),
@@ -19,6 +20,7 @@ const darkMode = {
   green: "#2e9599",
   lightGreen: "#44d3d8",
   blackGreen: "#a7226f",
+  paragrafoFooter: "white",
   red: "#f46c3f",
   whiteBody: "black",
   black: "white",

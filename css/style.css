@@ -2,6 +2,7 @@
 
 :root {
   --dark-blue: #363f5f;
+  --paragrafo-footer: #363f5f;
   --green: #49aa26;
   --light-green: #3dd705;
   --red: #e92929;
@@ -309,7 +310,7 @@ td.edit:hover {
 footer {
   text-align: center;
   padding: 4rem 0 2rem;
-  color: var(--dark-blue);
+  color: var(--paragrafo-footer);
 
   opacity: 0.6;
 }
