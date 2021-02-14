@@ -33,24 +33,8 @@ const msgOfAlert = (msg) => {
   document.querySelector("#toastify-msg").textContent = msg;
 };
 
-const activeToastifyError = () => {
-  toggle("error", "Por favor, preencha todos os campos");
-
-  setTimeout(() => {
-    toggle();
-  }, 3000);
-};
-
-const activeToastifySucess = () => {
-  toggle("sucess", "Salvo com sucesso");
-
-  setTimeout(() => {
-    toggle();
-  }, 3000);
-};
-
-const activeToastifyEdited = () => {
-  toggle("edited", "Editado com sucesso");
+const activeToastify = (type, msg) => {
+  toggle(type, msg);
 
   setTimeout(() => {
     toggle();
