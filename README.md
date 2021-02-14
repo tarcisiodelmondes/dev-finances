@@ -20,6 +20,7 @@ Dev.finance$ é um site de controle financeiro que foi desenvolvido durante a Ma
 - Salvar o tema que o usuario escolheu no localStorage, para carregar o tema escolhido
   assim que aplicação carregar
 - Colocar uma cor de acordo com a carteira: vermelho para saúde negativa e verde para saudável
+- Funcionalidade de filtrar as transações por data
 
 ## Visitar o site:
 
