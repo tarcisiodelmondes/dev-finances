@@ -29,10 +29,10 @@ const Transaction = {
   add(transaction, index) {
     if (this.editTransaction) {
       this.all[index] = transaction;
-      activeToastifyEdited();
+      activeToastify("edited", "Editado com sucesso");
     } else {
       this.all.push(transaction);
-      activeToastifySucess();
+      activeToastify("sucess", "Salvo com sucesso");
     }
 
     this.editTransaction = false;
@@ -222,7 +222,7 @@ const Form = {
       this.saveTransaction(transaction);
       this.closeModal();
     } catch (error) {
-      activeToastifyError();
+      activeToastify("error", "Por favor, preencha todos os campos");
     }
   },
 };
