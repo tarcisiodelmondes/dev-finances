@@ -20,7 +20,12 @@ const DateFilds = {
     const { initialDate, finalDate } = this.getValues();
 
     if (initialDate.trim() === "" || finalDate.trim() === "") {
-      throw new Error();
+      throw new Error("Por favor, preencha todos os campos");
+    }
+
+    if (initialDate > finalDate) {
+      throw new Error("A primeira data não pode ser maior do que a ultima");
+      alert("A data inical não pode ser maior do que a final");
     }
   },
 
@@ -65,12 +70,21 @@ const IconFilter = {
   },
 
   removeFilter() {
-    console.log("oi");
     Filter.isFilter = false;
     DateFilds.clearFields();
     App.reload();
   },
 };
+
+function convertDate(date) {
+  const dateSplit = date.split("/");
+  const newDate = new Date(
+    parseInt(dateSplit[2], 10),
+    parseInt(dateSplit[1], 10) - 1,
+    parseInt(dateSplit[0], 10)
+  );
+  return newDate;
+}
 
 const filterTransactions = () => {
   Filter.isFilter = true;
@@ -80,16 +94,6 @@ const filterTransactions = () => {
   const transactions = Transaction.all;
 
   let transactionsFiltred = [];
-
-  function convertDate(DataDDMMYY) {
-    const dateSplit = DataDDMMYY.split("/");
-    const newDate = new Date(
-      parseInt(dateSplit[2], 10),
-      parseInt(dateSplit[1], 10) - 1,
-      parseInt(dateSplit[0], 10)
-    );
-    return newDate;
-  }
 
   // Limpa todas transações da tela
   DOM.clearTransactions();
@@ -111,6 +115,8 @@ const filterTransactions = () => {
   transactionsFiltred.forEach((transaction, index) => {
     DOM.addTransaction(transaction, index);
   });
+
+  return transactionsFiltred;
 };
 
 const filtred = () => {
@@ -119,7 +125,7 @@ const filtred = () => {
     filterTransactions();
     DateFilds.closeFilter();
   } catch (error) {
-    activeToastifyError();
-    console.log(error);
+    activeToastify("error", error.message);
+    console.log(error.message);
   }
 };
