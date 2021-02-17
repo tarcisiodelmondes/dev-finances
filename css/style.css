@@ -2,12 +2,16 @@
 
 :root {
   --dark-blue: #363f5f;
-  --paragrafo-footer: #363f5f;
+  --paragrafo-footer: var(--dark-blue);
   --green: #49aa26;
   --light-green: #3dd705;
   --red: #e92929;
   --white-body: #f0f2f5;
   --black-green: #2d4a22;
+
+  --white-modal: /*#2f2f2f*/ var(--white-body);
+  --black-form: white /*#d0d0d0*/;
+  --modal-h2: var(--dark-blue);
 }
 
 * {
@@ -256,7 +260,7 @@ td.edit:hover {
 }
 
 .modal {
-  background: #f0f2f5;
+  background: var(--white-modal);
   padding: 2.4rem;
   position: relative;
   width: 90%;
@@ -274,6 +278,7 @@ td.edit:hover {
 
 .form h2 {
   margin-top: 0;
+  color: var(--modal-h2);
 }
 
 .form form input {
@@ -283,6 +288,7 @@ td.edit:hover {
   border-radius: 0.2rem;
 
   padding: 0.8rem;
+  background-color: var(--black-form);
 }
 
 .input-group {

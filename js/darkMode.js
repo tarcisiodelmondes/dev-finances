@@ -15,6 +15,9 @@ const initialColors = {
   whiteBody: getStyle(html, "--white-body"),
   black: getStyle(html, "--black"),
   orange: getStyle(html, "--orange"),
+  whiteModal: getStyle(html, "--white-modal"),
+  blackForm: getStyle(html, "--black-form"),
+  modalH2: getStyle(html, "--modal-h2"),
 };
 
 const darkMode = {
@@ -26,6 +29,9 @@ const darkMode = {
   whiteBody: "black",
   black: "white",
   orange: "#a7556f",
+  whiteModal: "#2f2f2f",
+  blackForm: "#d0d0d0",
+  modalH2: "white",
 };
 
 const transformKey = (key) =>
