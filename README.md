@@ -1,6 +1,6 @@
 # Dev.finance$
 
-![Imagem do site Dev.finance](https://raw.githubusercontent.com/tarcisiodelmondes/dev-finances/master/screenshots/main.jpg)
+![Imagem do site Dev.finance](https://raw.githubusercontent.com/tarcisiodelmondes/dev-finances/master/screenshots/main.png)
 
 ## Tecnologias
 
