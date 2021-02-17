@@ -1,4 +1,5 @@
 const html = document.querySelector("html");
+
 const checkbox = document.querySelector("input[name=theme]");
 
 const getStyle = (element, style) => {
@@ -45,6 +46,7 @@ const loadTheme = (theme) => {
     case "dark":
       checkbox.checked = true;
       changeColors(darkMode);
+
       break;
     case "ligth":
       checkbox.checked = false;
@@ -66,4 +68,5 @@ checkbox.addEventListener("change", ({ target }) => {
   }
 
   saveTheme(theme);
+  isNegative();
 });

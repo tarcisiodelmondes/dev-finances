@@ -115,8 +115,6 @@ const filterTransactions = () => {
   transactionsFiltred.forEach((transaction, index) => {
     DOM.addTransaction(transaction, index);
   });
-
-  return transactionsFiltred;
 };
 
 const filtred = () => {

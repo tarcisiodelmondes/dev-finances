@@ -244,9 +244,7 @@ const App = {
     loadTheme(Storage.get("theme"));
 
     // Coloca a cor de acordo com a saude da carteira
-    Transaction.total() < 0
-      ? isNegative(negativeWallet)
-      : isNegative(healthyWallet);
+    isNegative();
   },
 
   reload() {
