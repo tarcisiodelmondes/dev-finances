@@ -48,18 +48,9 @@ const saveTheme = (theme) => {
 };
 
 const loadTheme = (theme) => {
-  switch (theme) {
-    case "dark":
+    if(theme === "dark") {
       checkbox.checked = true;
       changeColors(darkMode);
-
-      break;
-    case "ligth":
-      checkbox.checked = false;
-      changeColors(initialColors);
-      break;
-    default:
-      break;
   }
 };
 
